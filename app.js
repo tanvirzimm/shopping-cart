@@ -59,6 +59,16 @@ removeItem2.addEventListener("click",function(){
 
 
 
+//Checkout button feature
+
+const checkOut = document.getElementById("checkOut");
+checkOut.addEventListener("click",function(){
+    alert("Your Order Is Accepted . Thanks for shopping");
+})
+
+
+
+
 
 
 
@@ -109,14 +119,22 @@ function updateTotal(){
 
     const allPrice = phonePriceNumber + casePriceNumber;
     let allTax = (allPrice/100)*5;
-
+    let totalAmount = allPrice + allTax;
 
     document.getElementById("subtotal").innerText =  allPrice;
     
     document.getElementById("tax").innerText = allTax.toFixed(1);
 
-    document.getElementById("total").innerText = allPrice + allTax;
+    document.getElementById("total").innerText = totalAmount;
+
+    if(allPrice==0 && allTax == 0 && totalAmount == 0){
+        document.getElementById("checkOut").style.display = "none";
+    }
+  
 }
+
+
+
 
 
 
